@@ -1,0 +1,98 @@
+@import "vars.scss";
+
+.content {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0 !important;
+}
+
+#applicationRoot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 30px;
+    overflow: hidden;
+    overflow-y: auto;
+    background: white;
+
+    .masterContainer {
+        width: 500px;
+        height: 500px;
+        margin: 0 auto;
+        border: 1px solid #cecece;
+
+        .pValueContainer {
+            height: 150px;
+            background: #cecece;
+            text-align: right;
+            position: relative;
+            font-size: 30px;
+
+            .currentValue {
+                position: absolute;
+                top: 10;
+                right: 0;
+            }
+
+            .valueDisplay {
+                position: absolute;
+                bottom: 10px;
+                right: 0;
+            }
+        }
+
+        .buttonsContainer {
+            .btn {
+                box-sizing: border-box;
+                width: 22%;
+                height: 22%;
+                margin: 1.5%;
+                float: left;
+                background: red;
+                border-radius: 50%;
+                padding: 10px;
+                text-align: center;
+                font-size: 20px;
+                font-weight: bold;
+                cursor: pointer;
+
+                &.width_2 {
+                    width: 47%;
+                }
+
+                &.num {
+                    background: #3d3d3d;
+                    color: white;
+                }
+
+                &.operator {
+                    background: rgb(255, 132, 0);
+                    color: white;
+                }
+
+                &:active {
+                    opacity: 0.5;
+                }
+
+                &.extra {
+                    background: #cecece;
+                }
+            }
+        }
+    }
+}
+.overflowHidden {
+    overflow: hidden;
+}
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(0,0,0,.5);
+    box-shadow: 0 0 1px rgba(255,255,255,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}

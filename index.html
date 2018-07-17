@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="Calculator" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="icon" type="image/png" href="favicon.ico?v=1524344875749">
+</head>
+
+<body>
+    <div id="applicationRoot"></div>
+    <script type="text/javascript">
+        var loc = window.location.href;
+
+        function genAppendLoop(target) {
+            var targetEl = document.getElementsByTagName(target).item(0);
+            return function (src) {
+                if (!src) return
+                var script = document.createElement('script');
+                script.setAttribute('type', 'text/javascript');
+                script.setAttribute('charset', 'utf-8');
+                script.setAttribute('src', src);
+                script.async = false;
+                targetEl.appendChild(script);
+            }
+        }
+
+        if (loc.indexOf('localhost') > -1) {
+            [
+                window.location.protocol + "//localhost:8088/webpack-dev-server.js",
+                window.location.protocol + "//localhost:8088/dist/js/app.entry.js",
+                window.location.protocol + "//localhost:8088/dist/js/vendor.entry.js",
+            ].forEach(genAppendLoop("body"))
+        } else {
+            [
+                "dist/js/app.entry.js?v=1524344875749.91",
+                "dist/js/vendor.entry.js?v=1524344875749.91",
+            ].forEach(genAppendLoop("body"))
+        }
+    </script>
+</body>
+
+</html>
